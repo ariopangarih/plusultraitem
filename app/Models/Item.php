@@ -1,0 +1,25 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Item extends Model
+{
+    use HasFactory;
+
+    protected $fillable= [
+        'name',
+        'desc',
+        'date',
+        'img',
+    ];
+
+    protected $table = 'items';
+
+    public function events(){
+        return $this->hasMany(Event::class,'item_id');
+    }
+    
+}
